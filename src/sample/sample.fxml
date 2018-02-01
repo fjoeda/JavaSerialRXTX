@@ -14,7 +14,7 @@
     <children>
         <HBox prefHeight="35.0" prefWidth="600.0">
             <children>
-                <TextField fx:id="SendSerialText" prefHeight="26.0" prefWidth="531.0">
+                <TextField fx:id="SendSerialText" prefHeight="26.0" prefWidth="531.0" onAction="#SendToSerial">
                     <HBox.margin>
                         <Insets left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>

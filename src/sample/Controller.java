@@ -30,6 +30,7 @@ public class Controller implements Initializable {
 
     private BufferedReader input;
     private OutputStream output;
+    private OutputStream output1;
 
     private String PortName = null;
     private String BaudRate = null;
@@ -45,6 +46,13 @@ public class Controller implements Initializable {
     };
 
     public void SendToSerial(ActionEvent actionEvent) {
+        try{
+            output1.write(SendSerialText.getText().getBytes());
+            output1.flush();
+            SendSerialText.setText("");
+        }catch (Exception e){
+
+        }
     }
 
     @Override
@@ -82,6 +90,7 @@ public class Controller implements Initializable {
                 serialPort.setSerialPortParams(Integer.valueOf(BaudRate),8,1,0);
                 input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
                 output = serialPort.getOutputStream();
+                output1 = output;
                 serialPort.addEventListener(new SerialPortEventListener() {
                     @Override
                     public void serialEvent(SerialPortEvent event) {
